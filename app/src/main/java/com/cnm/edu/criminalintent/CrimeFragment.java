@@ -14,13 +14,14 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 
 public class CrimeFragment extends Fragment {
+
   private Crime mCrime;
   private EditText mTitleField;
   private Button mDateButton;
   private CheckBox mSolvedCheckBox;
 
   @Override
-  public void onCreate(Bundle savedInstanceState){
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mCrime = new Crime();
   }
@@ -36,25 +37,24 @@ public class CrimeFragment extends Fragment {
       public void beforeTextChanged(
           CharSequence s, int start, int count, int after) {
         // This space intentionally left blank
-         }
+      }
 
-         @Override
-         public void onTextChanged(
-             CharSequence s, int start, int before, int count) {
+      @Override
+      public void onTextChanged(
+          CharSequence s, int start, int before, int count) {
         mCrime.setTitle(s.toString());
       }
 
       @Override
       public void afterTextChanged(Editable s) {
         // This one too
-        }
+      }
     });
 
     mDateButton = (Button) v.findViewById(R.id.crime_date);
     mDateButton.setText(mCrime.getDate().toString());
     mDateButton.setEnabled(false);
-
-    mSolvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
+    mSolvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);
     mSolvedCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
       @Override
       public void onCheckedChanged(CompoundButton buttonView,
